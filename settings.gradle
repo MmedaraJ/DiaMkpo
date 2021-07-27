@@ -1,0 +1,2 @@
+rootProject.name = "DiaMkpo"
+include ':app'

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Text Sizes-->
+    <dimen name="corner_radius">5dp</dimen>
+    <dimen name="nav_bar_h">75dp</dimen>
+
+    <!--Margins-->
+    <dimen name="top_margin">64dp</dimen>
+    <dimen name="l_r_margin">16dp</dimen>
+    <dimen name="between_menu_icons_margin">24dp</dimen>
+    <dimen name="thirty_two">32dp</dimen>
+    <dimen name="past_order_height">64dp</dimen>
+
+    <!--Menu Icons-->
+    <dimen name="menu_width">20dp</dimen>
+    <dimen name="menu_height">20dp</dimen>
+
+    <!--Text Sizes-->
+    <dimen name="header_size">20sp</dimen>
+    <dimen name="fifteen">15sp</dimen>
+
+    <!--Highest Rated Products-->
+    <dimen name="highest_rated_background_width">175dp</dimen>
+    <dimen name="highest_rated_background_height">135dp</dimen>
+    <dimen name="highest_rated_image_height">108dp</dimen>
+    <dimen name="heart_w_h">20dp</dimen>
+    <dimen name="heart_margin">5dp</dimen>
+
+    <!--Your Favourites-->
+    <dimen name="favourites_h_w">120dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--Past orders-->
+    <dimen name="reorder_w">77dp</dimen>
+    <dimen name="reorder_h">25dp</dimen>
+    <dimen name="twelve_sp">12sp</dimen>
+    <dimen name="past_order_image_w">113.79dp</dimen>
+
+    <!--Search Fragment-->
+    <dimen name="category_image_w">191.44dp</dimen>
+    <dimen name="category_image_h">107.68dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!--Account Fragment-->
+    <dimen name="account_pic_w_h">60dp</dimen>
+    <dimen name="account_item_w_h">30dp</dimen>
+</resources>

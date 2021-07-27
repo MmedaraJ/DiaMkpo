@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/background"
+    android:layout_marginTop="@dimen/l_r_margin"
+    android:layout_marginBottom="@dimen/l_r_margin">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/menuItemItemNameTv"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:maxWidth="220dp"
+            android:maxLines="1"
+            android:text="@string/burger_le_bouge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/header_size" />
+
+        <TextView
+            android:id="@+id/menuItemDescription"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_slab"
+            android:maxWidth="220dp"
+            android:maxLines="2"
+            android:layout_marginTop="@dimen/l_r_margin"
+            android:text="@string/menu_item_description"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/l_r_margin">
+
+            <TextView
+                android:id="@+id/menuItemPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_slab"
+                android:text="@string/price" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/menuItemImageCardView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:maxWidth="75dp"
+        android:maxHeight="75dp"
+        app:cardCornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menuItemImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/meat" />
+
+        <ImageView
+            android:id="@+id/menuItemLikeCircle"
+            android:layout_width="@dimen/heart_w_h"
+            android:layout_height="@dimen/heart_w_h"
+            android:layout_gravity="top|end"
+            android:layout_margin="@dimen/heart_margin" />
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

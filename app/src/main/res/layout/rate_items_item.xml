@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:layout_marginTop="16dp"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/background">
+
+    <TextView
+        android:id="@+id/mealToBeRated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_slab"
+        android:text="@string/slurpy_fruity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fifteen" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="0"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:theme="@style/RatingBar"/>
+
+    <EditText
+        android:id="@+id/ratingText"
+        android:layout_width="240dp"
+        android:layout_height="70dp"
+        android:fontFamily="@font/roboto_slab"
+        android:textColor="@color/black"
+        android:textSize="@dimen/fifteen"
+        android:padding="10dp"
+        android:background="@drawable/white_background_with_green_background"/>
+
+</LinearLayout>

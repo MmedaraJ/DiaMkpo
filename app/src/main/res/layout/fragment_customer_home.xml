@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.CustomerHomeFragment">
+
+    <TextView
+        android:id="@+id/customerHomeHeaderTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/l_r_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:fontFamily="@font/roboto_slab_bold"
+        android:textColor="@color/black"
+        android:textSize="@dimen/header_size"
+        android:text="@string/we_missed_you"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/topRightIconsCustomerHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginEnd="@dimen/l_r_margin"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menuIconCustomerHome"
+            android:layout_width="@dimen/menu_width"
+            android:layout_height="@dimen/menu_height"
+            android:src="@drawable/ic_baseline_restaurant_menu_24" />
+
+        <ImageView
+            android:id="@+id/cartIconCustomerHome"
+            android:layout_width="@dimen/menu_width"
+            android:layout_height="@dimen/menu_height"
+            android:layout_marginStart="@dimen/between_menu_icons_margin"
+            android:src="@drawable/ic_baseline_shopping_cart_24" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/l_r_margin"
+        android:layout_marginTop="@dimen/thirty_two"
+        android:layout_marginEnd="@dimen/l_r_margin"
+        android:background="@color/background"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/customerHomeHeaderTv">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/highestRatedMealsRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ourCustomersFavouritesTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/our_customers_favourites"
+                android:textColor="@color/black"
+                android:textSize="@dimen/header_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/highestRatedMealsRecycler" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ourCustomersFavouritesRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ourCustomersFavouritesTv" />
+
+            <TextView
+                android:id="@+id/yourFavouritesTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/your_favourites"
+                android:textColor="@color/black"
+                android:textSize="@dimen/header_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ourCustomersFavouritesRecycler" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/yourFavouritesRecycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yourFavouritesTv" />
+
+            <TextView
+                android:id="@+id/yourLastMealTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/thirty_two"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/Your_last_meal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/header_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yourFavouritesRecycler" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lastMealBackground"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/past_order_height"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/green_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/yourLastMealTv">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/yourLastMealCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/corner_radius"
+                    android:background="@color/green"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/yourLastMealImage"
+                        android:layout_width="@dimen/past_order_image_w"
+                        android:layout_height="@dimen/past_order_height"
+                        app:layout_constraintBottom_toBottomOf="@+id/lastMealBackground"
+                        app:layout_constraintStart_toStartOf="@+id/lastMealBackground"
+                        app:layout_constraintTop_toTopOf="@+id/lastMealBackground" />
+
+                    <ImageView
+                        android:id="@+id/lastMealLikeCircle"
+                        android:layout_width="@dimen/heart_w_h"
+                        android:layout_height="@dimen/heart_w_h"
+                        android:layout_gravity="top|end"
+                        android:layout_margin="@dimen/heart_margin"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/reorderTvYourLastMeal"
+                    android:layout_width="@dimen/reorder_w"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="@dimen/l_r_margin"
+                    android:background="@drawable/white_background"
+                    android:fontFamily="@font/roboto_slab"
+                    android:gravity="center"
+                    android:text="@string/reorder"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/twelve_sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/lastMealBackground"
+                    app:layout_constraintEnd_toEndOf="@+id/lastMealBackground"
+                    app:layout_constraintTop_toTopOf="@+id/lastMealBackground" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/yourLastMealCardView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/lastMealOrderNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_slab_bold"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_sp"
+                        tools:layout_editor_absoluteX="144dp"
+                        tools:layout_editor_absoluteY="6dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/lastMealNumberOfItems"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_slab"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="143dp"
+                            tools:layout_editor_absoluteY="25dp" />
+
+                        <TextView
+                            android:id="@+id/lastMealDivider2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:fontFamily="@font/roboto_slab"
+                            android:text="@string/divider"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="145dp"
+                            tools:layout_editor_absoluteY="42dp" />
+
+                        <TextView
+                            android:id="@+id/lastMealPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_slab"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="143dp"
+                            tools:layout_editor_absoluteY="25dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/lastMealDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_slab"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="145dp"
+                            tools:layout_editor_absoluteY="42dp" />
+
+                        <TextView
+                            android:id="@+id/lastMealDivider"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginEnd="5dp"
+                            android:fontFamily="@font/roboto_slab"
+                            android:text="@string/divider"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="145dp"
+                            tools:layout_editor_absoluteY="42dp" />
+
+                        <TextView
+                            android:id="@+id/lastMealCompletionStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_slab"
+                            android:text="@string/past_order_completion_status"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_sp"
+                            tools:layout_editor_absoluteX="206dp"
+                            tools:layout_editor_absoluteY="41dp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

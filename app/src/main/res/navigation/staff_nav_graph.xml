@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/staff_nav_graph"
+    app:startDestination="@id/staffSearchFragment">
+
+    <fragment
+        android:id="@+id/staffSearchFragment"
+        android:name="com.example.diamkpo.Fragments.SearchFragments.StaffSearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_staffSearchFragment_to_searchClickedFragment2"
+            app:destination="@id/searchClickedFragment2" />
+        <action
+            android:id="@+id/action_staffSearchFragment_to_menuFragment2"
+            app:destination="@id/staffMenuFragment" />
+        <action
+            android:id="@+id/action_staffSearchFragment_to_staffAddNewProductPageFragment"
+            app:destination="@id/staffAddNewProductPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffMenuFragment"
+        android:name="com.example.diamkpo.Fragments.MenuFragments.StaffMenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu">
+        <argument
+            android:name="checkedPosition"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_menuFragment2_to_staffUpdateProductPageFragment"
+            app:destination="@id/staffUpdateProductPageFragment" />
+        <action
+            android:id="@+id/action_staffMenuFragment_to_staffAddNewProductPageFragment2"
+            app:destination="@id/staffAddNewProductPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchClickedFragment2"
+        android:name="com.example.diamkpo.Fragments.SearchClickedFragments.StaffSearchClickedFragment"
+        android:label="fragment_search_clicked"
+        tools:layout="@layout/fragment_search_clicked" >
+        <action
+            android:id="@+id/action_searchClickedFragment2_to_staffSearchFragment"
+            app:destination="@id/staffSearchFragment" />
+        <action
+            android:id="@+id/action_searchClickedFragment2_to_staffUpdateProductPageFragment"
+            app:destination="@id/staffUpdateProductPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffUpdateProductPageFragment"
+        android:name="com.example.diamkpo.Fragments.StaffProductPageFragments.UpdateProductFragment"
+        android:label="fragment_staff_editable_product_page"
+        tools:layout="@layout/fragment_staff_product_page" >
+        <argument
+            android:name="mealId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <action
+            android:id="@+id/action_staffUpdateProductPageFragment_to_staffMenuFragment"
+            app:destination="@id/staffMenuFragment" />
+        <action
+            android:id="@+id/action_staffUpdateProductPageFragment_to_staffSearchFragment"
+            app:destination="@id/staffSearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/staffAddNewProductPageFragment"
+        android:name="com.example.diamkpo.Fragments.StaffProductPageFragments.AddNewProductFragment"
+        android:label="fragment_staff_editable_product_page"
+        tools:layout="@layout/fragment_staff_product_page" >
+        <action
+            android:id="@+id/action_staffAddNewProductPageFragment_to_staffSearchFragment"
+            app:destination="@id/staffSearchFragment" />
+    </fragment>
+</navigation>

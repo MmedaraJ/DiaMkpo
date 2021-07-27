@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "333654802615",
+    "project_id": "restaurant-98d75",
+    "storage_bucket": "restaurant-98d75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333654802615:android:64ddf7dcfe5b259dc58d32",
+        "android_client_info": {
+          "package_name": "com.example.diamkpo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333654802615-4puusevsg214jt0vlorqk6n9j28rtcc5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.diamkpo",
+            "certificate_hash": "957c2e250eb306e044195730702cfaaacb8756e4"
+          }
+        },
+        {
+          "client_id": "333654802615-1p851lpnlp12eg1krdjqkfd980fq9lfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1aYVxLTT-nql-swXpgjEMaoSoglmcnss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333654802615-1p851lpnlp12eg1krdjqkfd980fq9lfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

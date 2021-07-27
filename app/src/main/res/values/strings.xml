@@ -1,0 +1,147 @@
+<resources>
+    <string name="app_name">Dia Mkpo</string>
+    <string name="initializing">Initializing</string>
+    <string name="checking_user_account">Checking user account</string>
+    <string name="you_have_to_sign_in">You have to sign in</string>
+    <string name="successful_sign_in">Successful sign in</string>
+    <string name="webclient_id1">333654802615–4puusevsg214jt0vlorqk6n9j28rtcc5.apps.googleusercontent.com</string>
+    <string name="webclient_id">333654802615–1p851lpnlp12eg1krdjqkfd980fq9lfn.apps.googleusercontent.com</string>
+
+    <!--Sign In Activity-->
+    <string name="sign_in_options">Sign in options</string>
+    <string name="staff">Staff</string>
+    <string name="user">User</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_in_confirmation">Sign in confirmation</string>
+    <string name="unsuccessful_sign_in">Sign in unsuccessful</string>
+
+    <!--Tab-->
+    <string name="home">Home</string>
+    <string name="browse">Browse</string>
+    <string name="orders">Orders</string>
+    <string name="account">Account</string>
+    <string name="menu">Menu</string>
+
+    <!--Home Screen-->
+    <string name="customer_morning_home_screen_header">Good morning</string>
+    <string name="customer_afternoon_home_screen_header">Good afternoon</string>
+    <string name="customer_evening_home_screen_header">Good evening</string>
+    <string name="we_missed_you">We missed you</string>
+    <string name="burger_le_bouge">Burger Lé Bougè</string>
+    <string name="slurpy_fruity">Slurpy Fruitie</string>
+    <string name="drink">Drink</string>
+    <string name="rating">4.5</string>
+    <string name="price">$5.99</string>
+    <string name="our_customers_favourites">Our customers love</string>
+    <string name="your_favourites">Your favourites</string>
+    <string name="Your_last_meal">Your last meal</string>
+
+    <!--Search Screen-->
+    <string name="search_screen_header">Find your next meal</string>
+    <string name="search_hint">Food, Drinks or Snacks</string>
+    <string name="search">Search</string>
+    <string name="results">Results</string>
+    <string name="categories">Categories</string>
+    <string name="deals">Deals</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="african">African</string>
+    <string name="healthy">Healthy</string>
+    <string name="snacks">Snacks</string>
+    <string name="drinks">Drinks</string>
+
+    <!--Past Orders Screen-->
+    <string name="past_orders_header">Past orders</string>
+    <string name="reorder">Reorder</string>
+    <string name="order_number">#22</string>
+    <string name="number_of_items">3 items</string>
+    <string name="past_order_product_name">Simple BLT</string>
+    <string name="date">June 05</string>
+    <string name="divider">|</string>
+    <string name="past_order_completion_status">Completed</string>
+
+    <!--Menu Screen-->
+    <string name="menu_screen_header">Menu</string>
+    <string name="menu_item_description">It is a long established fact that a reader will be of a page when looking at its layout.
+        It is a long established fact that a reader will be of a page when looking at its layout
+    </string>
+
+    <!--Product Page Screen-->
+    <string name="note">Note</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="product_description">Contrary to popular belief, Lorem Ipsum is not simply
+        random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old.
+        Richard McClintock, a Latin professor at Hampden-Sydney
+        College in Virginia.
+    </string>
+    <string name="total_general_orders">30 people have ordered this meal</string>
+    <string name="total_personal_orders">You have ordered this 3 times</string>
+    <string name="special_instruction_hint">Any allergies or needs?</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="number">2</string>
+
+    <!--Cart Bottom Screen-->
+    <string name="checkout">Go to Checkout</string>
+    <string name="remove_item">REMOVE ITEM</string>
+
+    <!--Past Order Details-->
+    <string name="past_order_details_order_number">Order #23</string>
+    <string name="your_orders">Your orders</string>
+    <string name="rate_order">Rate order</string>
+    <string name="rate_these_items">Rate these items</string>
+    <string name="submit">Submit</string>
+    <string name="total">Total: $20.99</string>
+
+    <!--Checkout Bottom Screen-->
+    <string name="checkout_header">Checkout</string>
+    <string name="your_items">Your items</string>
+    <string name="see_menu">See menu</string>
+    <string name="add_items">+ Add items</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="delivery_fee">Delivery Fee</string>
+    <string name="taxes">Taxes</string>
+    <string name="total_checkout">Total</string>
+    <string name="pay_now">Pay Now</string>
+
+    <!--Staff search Screen-->
+    <string name="add_new_meal">+ Add new meal</string>
+    <string name="staff_search_header">Find a meal</string>
+    <string name="sign_out">Sign out</string>
+
+    <!--Staff update product Screen-->
+    <string name="product_name">Name</string>
+    <string name="num_general_orders">Number of general orders</string>
+    <string name="num_personal_orders">Number of personal orders</string>
+    <string name="image_fire_base_link">Image Firebase Link</string>
+    <string name="description">Description</string>
+    <string name="normal_price">Normal Price</string>
+    <string name="deal_price">Deal Price</string>
+    <string name="visibility">Visibility</string>
+    <string name="_public">public</string>
+    <string name="add_category">Add cat.</string>
+    <string name="blank"> </string>
+
+    <!--Account fragment-->
+    <string name="account_name">Account Name</string>
+    <string name="liked_meals">Liked Meals</string>
+
+    <!--Delivery Address fragment-->
+    <string name="delivery_location">Delivery Location</string>
+    <string name="current_delivery_address">Current Delivery Address</string>
+    <string name="donna_street">32 Donna Street</string>
+    <string name="update_delivery_location">Update Delivery Location</string>
+    <string name="left_over_address">Ottawa, ON, Canada</string>
+
+    <!--Sign Out Dialog fragment-->
+    <string name="confirm_sign_out">Are you sure?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+
+
+</resources>

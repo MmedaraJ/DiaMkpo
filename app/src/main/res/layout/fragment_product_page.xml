@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".Fragments.ProductPageFragment">
+
+    <LinearLayout
+        android:id="@+id/addToCartLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/l_r_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/backIconProductPageFragment"
+            android:layout_width="@dimen/menu_width"
+            android:layout_height="@dimen/menu_height"
+            android:src="@drawable/ic_baseline_arrow_back_24" />
+
+        <TextView
+            android:id="@+id/productPageHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/l_r_margin"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/burger_le_bouge"
+            android:textColor="@color/black"
+            android:textSize="@dimen/header_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:fillViewport="false"
+        android:maxHeight="470dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/addToCartCardViewProductPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addToCartLinearLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/productImageProductPage"
+                android:layout_width="match_parent"
+                android:layout_height="222dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/burger1" />
+
+            <TextView
+                android:id="@+id/productDescriptionProductPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l_r_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/l_r_margin"
+                android:fontFamily="@font/roboto_slab"
+                android:text="@string/product_description"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productImageProductPage" />
+
+            <TextView
+                android:id="@+id/totalGeneralOrdersTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l_r_margin"
+                android:layout_marginTop="@dimen/thirty_two"
+                android:layout_marginEnd="@dimen/l_r_margin"
+                android:fontFamily="@font/roboto_slab"
+                android:text="@string/total_general_orders"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productDescriptionProductPage" />
+
+            <TextView
+                android:id="@+id/totalPersonalOrdersTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l_r_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/l_r_margin"
+                android:fontFamily="@font/roboto_slab"
+                android:text="@string/total_personal_orders"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalGeneralOrdersTv" />
+
+            <TextView
+                android:id="@+id/noteHeaderTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l_r_margin"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="@dimen/l_r_margin"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:text="@string/note"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fifteen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/totalPersonalOrdersTv" />
+
+            <EditText
+                android:id="@+id/noteEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l_r_margin"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/l_r_margin"
+                android:fontFamily="@font/roboto_slab"
+                android:hint="@string/special_instruction_hint"
+                android:textColorHighlight="@color/black"
+                android:textColorLink="@color/black"
+                android:textSize="@dimen/twelve_sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/noteHeaderTv" />
+
+            <ImageView
+                android:id="@+id/productPageLikeButton"
+                android:layout_width="@dimen/heart_w_h"
+                android:layout_height="@dimen/heart_w_h"
+                android:layout_marginTop="@dimen/heart_margin"
+                android:layout_marginEnd="@dimen/heart_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addToCartCardViewProductPage"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="@dimen/l_r_margin"
+        app:cardBackgroundColor="@color/green"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/addToCartTvProductPage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/minusSignProductPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_slab"
+                    android:text="@string/minus"
+                    android:textColor="@color/red"
+                    android:textSize="32sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/numberOfProductsProductPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:fontFamily="@font/roboto_slab"
+                    android:text="@string/number"
+                    android:textColor="@color/background"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/plusSignProductPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:fontFamily="@font/roboto_slab"
+                    android:text="@string/plus"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fifteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/shareIconProductPageFragment"
+                android:layout_width="@dimen/menu_width"
+                android:layout_height="@dimen/menu_height"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_baseline_send_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/productPriceProductPage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_slab"
+                    android:text="@string/price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/fifteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/addToCartTvProductPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/white_background"
+                android:fontFamily="@font/roboto_slab_bold"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:text="@string/add_to_cart"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fifteen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+<!--
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewProductPage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/nav_bar_h"
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/customer_bottom_nav_menu" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
