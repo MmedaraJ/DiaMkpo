@@ -8,14 +8,17 @@
 
     <SearchView
         android:id="@+id/searchViewSearchClickedFragment"
-        android:layout_width="330dp"
+        android:layout_width="0dp"
         android:layout_height="30dp"
         android:layout_marginStart="@dimen/l_r_margin"
-        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="16dp"
         android:autofillHints="@string/search"
         android:background="@drawable/search_border"
         android:gravity="start"
         android:queryHint="@string/search"
+
+        app:layout_constraintEnd_toStartOf="@+id/closeButtonSearchClickedFragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,10 +26,10 @@
         android:id="@+id/closeButtonSearchClickedFragment"
         android:layout_width="10dp"
         android:layout_height="10dp"
-        android:layout_marginTop="72dp"
         android:layout_marginEnd="@dimen/l_r_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/searchViewSearchClickedFragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/searchViewSearchClickedFragment"
         app:srcCompat="@drawable/cancel" />
 
     <TextView
@@ -44,11 +47,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/searchResultsRecycler"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/l_r_margin"
         android:layout_marginTop="@dimen/l_r_margin"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsTvSearchClicked" />
 

@@ -48,9 +48,6 @@ public class SearchDeliveryAddressActivity extends AppCompatActivity implements 
 
     private GoogleSignInAccount account;
 
-    private NavController navController;
-    private NavHostFragment navHostFragment;
-
     private TextView currentLocationAddress;
 
     private ImageView backIconDeliveryAddressActivity;
@@ -67,10 +64,6 @@ public class SearchDeliveryAddressActivity extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_delivery_address);
-
-        navHostFragment = (NavHostFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.customerFragmentContainer);
-        navController = navHostFragment.getNavController();
 
         firebaseFirestore = FirebaseFirestore.getInstance();
         account = GoogleSignIn.getLastSignedInAccount(this);

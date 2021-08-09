@@ -160,7 +160,7 @@ public class CustomerHomeFragment extends Fragment implements View.OnClickListen
         highestRatedMealsAdapter = new HighestRatedMealsAdapter(getActivity());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
         int spanCount = 2;
-        int spacing = 10;
+        int spacing = 30;
         highestRatedMealsRecycler.setLayoutManager(gridLayoutManager);
         highestRatedMealsRecycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, false));
         highestRatedMealsRecycler.setAdapter(highestRatedMealsAdapter);
@@ -194,6 +194,11 @@ public class CustomerHomeFragment extends Fragment implements View.OnClickListen
 
         setOnClickListeners();
     }
+
+    //With the play n=by play of the smae going to om elater,
+    //do not hbelive SSIIS If vyg oa
+
+
 
     private void getHighestRatedMeals() {
         mealViewModel = new ViewModelProvider(this.requireActivity()).get(MealViewModel.class);
@@ -496,9 +501,11 @@ public class CustomerHomeFragment extends Fragment implements View.OnClickListen
                 navController.navigate(CustomerHomeFragmentDirections.actionCustomerHomeFragmentToMenuFragment());
                 break;
             case R.id.reorderTvYourLastMeal:
+                if(lastOrder != null)
                 addToCart();
                 break;
             case R.id.lastMealBackground:
+                if(lastOrder != null)
                 navigateToPastOrderDetailPage();
                 break;
         }
