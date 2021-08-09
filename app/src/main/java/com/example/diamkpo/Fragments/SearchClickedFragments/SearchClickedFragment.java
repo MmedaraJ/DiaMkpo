@@ -20,6 +20,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.diamkpo.Adapters.SearchResultItemAdapter;
+import com.example.diamkpo.ItemDecorations.GridSpacingItemDecoration;
 import com.example.diamkpo.Models.MealModel;
 import com.example.diamkpo.R;
 import com.example.diamkpo.ViewModels.MealViewModel;
@@ -76,7 +77,10 @@ public abstract class SearchClickedFragment extends Fragment implements View.OnC
         searchResultsRecycler = view.findViewById(R.id.searchResultsRecycler);
         searchResultItemAdapter = new SearchResultItemAdapter(getActivity());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 3, GridLayoutManager.VERTICAL, false);
+        int spanCount = 3;
+        int spacing = 30;
         searchResultsRecycler.setLayoutManager(gridLayoutManager);
+        searchResultsRecycler.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, false));
         searchResultsRecycler.setHasFixedSize(true);
         searchResultsRecycler.setAdapter(searchResultItemAdapter);
 

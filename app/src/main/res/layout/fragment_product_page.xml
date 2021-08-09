@@ -136,6 +136,7 @@
                 android:hint="@string/special_instruction_hint"
                 android:textColorHighlight="@color/black"
                 android:textColorLink="@color/black"
+                android:shadowColor="@color/black"
                 android:textSize="@dimen/twelve_sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

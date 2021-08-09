@@ -24,6 +24,7 @@ import android.widget.TextView;
 import com.example.diamkpo.Activities.SignInActivity;
 import com.example.diamkpo.Adapters.SearchCategoryItemsAdapter;
 import com.example.diamkpo.Fragments.CartBottomSheetFragment;
+import com.example.diamkpo.ItemDecorations.GridSpacingItemDecoration;
 import com.example.diamkpo.Models.CategoryModel;
 import com.example.diamkpo.R;
 import com.example.diamkpo.TouchListeners.ItemClickSupport;
@@ -89,8 +90,10 @@ public abstract class SearchFragment extends Fragment implements View.OnClickLis
         categoriesRecyclerSearchFragment = view.findViewById(R.id.categoriesRecyclerSearchFragment);
         searchCategoryItemsAdapter = new SearchCategoryItemsAdapter(getActivity());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        int spanCount = 2;
+        int spacing = 30;
         categoriesRecyclerSearchFragment.setLayoutManager(gridLayoutManager);
+        categoriesRecyclerSearchFragment.addItemDecoration(new GridSpacingItemDecoration(spanCount, spacing, false));
         categoriesRecyclerSearchFragment.setAdapter(searchCategoryItemsAdapter);
 
         //////////////////////////////////on Activity created///////////////////////////////////////////////

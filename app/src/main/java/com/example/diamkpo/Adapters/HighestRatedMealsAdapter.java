@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.example.diamkpo.Models.MealModel;
 import com.example.diamkpo.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -89,6 +90,7 @@ public class HighestRatedMealsAdapter extends RecyclerView.Adapter<HighestRatedM
         public void bind(MealModel meal){
             Glide.with(itemView.getContext())
                     .load(meal.getImage())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
                     .placeholder(R.drawable.burger1)
                     .into(highestRatedProductImage);
