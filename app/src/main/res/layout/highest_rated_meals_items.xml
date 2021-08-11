@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/highest_rated_image_height"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/burger1" />
+            app:srcCompat="@drawable/placeholder_image" />
 
         <ImageView
             android:id="@+id/highestRatingLikeCircle"

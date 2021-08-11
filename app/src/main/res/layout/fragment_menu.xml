@@ -22,7 +22,8 @@
             android:id="@+id/backIconMenuFragment"
             android:layout_width="@dimen/menu_width"
             android:layout_height="@dimen/menu_height"
-            android:src="@drawable/ic_baseline_arrow_back_24" />
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            android:contentDescription="@string/previous_page"/>
 
         <TextView
             android:id="@+id/menuHeader"
@@ -34,7 +35,7 @@
             android:textSize="@dimen/header_size"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginLeft="@dimen/l_r_margin"/>
+            android:layout_marginStart="@dimen/l_r_margin"/>
 
     </LinearLayout>
 
@@ -51,7 +52,8 @@
             android:id="@+id/cartIconMenuFragment"
             android:layout_width="@dimen/menu_width"
             android:layout_height="@dimen/menu_height"
-            android:src="@drawable/ic_baseline_shopping_cart_24" />
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:contentDescription="@string/open_cart"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

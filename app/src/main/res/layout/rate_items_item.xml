@@ -29,16 +29,17 @@
         android:rating="0"
         android:focusableInTouchMode="true"
         android:focusable="true"
-        android:theme="@style/RatingBar"/>
+        android:theme="@style/RatingBar"
+        android:contentDescription="@string/rate_this_meal"/>
 
     <EditText
         android:id="@+id/ratingText"
         android:layout_width="240dp"
         android:layout_height="70dp"
+        android:background="@drawable/white_background_with_green_background"
         android:fontFamily="@font/roboto_slab"
-        android:textColor="@color/black"
-        android:textSize="@dimen/fifteen"
         android:padding="10dp"
-        android:background="@drawable/white_background_with_green_background"/>
+        android:textColor="@color/black"
+        android:textSize="@dimen/fifteen" />
 
 </LinearLayout>

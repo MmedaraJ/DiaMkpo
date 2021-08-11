@@ -174,7 +174,7 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
                             Glide.with(getActivity())
                                     .load(mealImage)
                                     .centerCrop()
-                                    .placeholder(R.drawable.burger1)
+                                    .placeholder(R.drawable.placeholder_image)
                                     .into(productImageStaffProductPage);
                             mealImageLink = documentSnapshot.getString("image");
                             staffProductImageProductPage.setText(mealImageLink);
@@ -250,9 +250,7 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<Void> task) {
-                        //close staff product page
-                        //TODO popBackStack when you understand it. Many places need this
-                        navigateToMenu(navController);
+                        navController.popBackStack();
                     }
                 });
     }
@@ -266,9 +264,7 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
                     @Override
                     public void onComplete(@NonNull @NotNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            //close staff product page
-                            //TODO popBackStack when you understand it. Many places need this
-                            navigateToMenu(navController);
+                            navController.popBackStack();
                         }
                     }
                 });
@@ -284,9 +280,7 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<Void> task) {
-                        //close staff product page
-                        //TODO popBackStack when you understand it. Many places need this
-                        navigateToMenu(navController);
+                        navController.popBackStack();
                     }
                 });
     }
@@ -329,6 +323,9 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
             case R.id.deleteProduct:
                 navigateToMenu(navController);
                 break;
+            case R.id.backIconStaffProductPageFragment:
+                navController.popBackStack();
+                break;
         }
     }
 
@@ -349,6 +346,9 @@ public abstract class StaffProductPageFragment extends Fragment implements View.
                 break;
             case R.id.deleteProduct:
                 deleteMeal();
+                break;
+            case R.id.backIconStaffProductPageFragment:
+                navController.popBackStack();
                 break;
         }
     }

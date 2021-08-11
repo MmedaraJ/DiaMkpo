@@ -33,14 +33,16 @@
             android:id="@+id/menuIconCustomerHome"
             android:layout_width="@dimen/menu_width"
             android:layout_height="@dimen/menu_height"
-            android:src="@drawable/ic_baseline_restaurant_menu_24" />
+            android:src="@drawable/ic_baseline_restaurant_menu_24"
+            android:contentDescription="@string/open_menu"/>
 
         <ImageView
             android:id="@+id/cartIconCustomerHome"
             android:layout_width="@dimen/menu_width"
             android:layout_height="@dimen/menu_height"
             android:layout_marginStart="@dimen/between_menu_icons_margin"
-            android:src="@drawable/ic_baseline_shopping_cart_24" />
+            android:src="@drawable/ic_baseline_shopping_cart_24"
+            android:contentDescription="@string/open_cart" />
     </LinearLayout>
 
     <ScrollView
@@ -152,6 +154,7 @@
                         android:layout_width="@dimen/past_order_image_w"
                         android:layout_height="@dimen/past_order_height"
                         android:background="@color/green"
+                        android:contentDescription="@string/Your_last_meal"
                         app:layout_constraintBottom_toBottomOf="@+id/lastMealBackground"
                         app:layout_constraintStart_toStartOf="@+id/lastMealBackground"
                         app:layout_constraintTop_toTopOf="@+id/lastMealBackground" />
@@ -161,7 +164,8 @@
                         android:layout_width="@dimen/heart_w_h"
                         android:layout_height="@dimen/heart_w_h"
                         android:layout_gravity="top|end"
-                        android:layout_margin="@dimen/heart_margin" />
+                        android:layout_margin="@dimen/heart_margin"
+                        android:contentDescription="@string/your_last_meal_like"/>
 
                 </androidx.cardview.widget.CardView>
 

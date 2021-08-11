@@ -52,23 +52,14 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
     private CartItemsAdapter cartItemsAdapter;
 
     private CartViewModel cartViewModel;
-    private MealViewModel mealViewModel;
-    private UserViewModel userViewModel;
-
-    private UserModel thisUserModel;
 
     private List<CartModel> cartItems;
-    private List<MealModel> meals;
 
     private TextView goToCheckoutTv;
     private TextView cartTotalPrice;
 
     private Double totalPrice;
 
-    private String pastOrderId;
-    private String image;
-
-    private int orderNumber;
 
     private static final String TAG = "CART_SHEET_HOME_LOG";
 
@@ -93,10 +84,7 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
 
         totalPrice = 0.0;
 
-        pastOrderId = "";
-
         cartItems = new ArrayList<>();
-        meals = new ArrayList<>();
 
         goToCheckoutTv = view.findViewById(R.id.goToCheckoutTv);
         cartTotalPrice = view.findViewById(R.id.cartTotalPrice);
@@ -112,20 +100,8 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
         cartItemsRecycler.setAdapter(cartItemsAdapter);
 
         getCartItems();
-        getMeals();
-        getUserItems();
 
         addOnClickListeners();
-    }
-
-    private void getUserItems() {
-        userViewModel = new ViewModelProvider(this.requireActivity()).get(UserViewModel.class);
-        userViewModel.getUserModelData(getActivity()).observe(getViewLifecycleOwner(), new Observer<UserModel>() {
-            @Override
-            public void onChanged(UserModel userModel) {
-                thisUserModel = userModel;
-            }
-        });
     }
 
     private void getCartItems(){
@@ -134,43 +110,10 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
             @Override
             public void onChanged(List<CartModel> cartModels) {
                 cartItems = cartModels;
-                //addClickSupportToRecycler(cartItemsRecycler, cartModels);
                 cartItemsAdapter.setCartModels(cartModels);
                 setCorrectTotalPrice(cartModels);
             }
         });
-    }
-
-    private void getMeals(){
-        mealViewModel = new ViewModelProvider(this.requireActivity()).get(MealViewModel.class);
-        mealViewModel.getMealsModelData().observe(getViewLifecycleOwner(), new Observer<List<MealModel>>() {
-            @Override
-            public void onChanged(List<MealModel> mealModels) {
-                meals = mealModels;
-            }
-        });
-    }
-
-    private void addClickSupportToRecycler(RecyclerView recycler, List<CartModel> cartModelList){
-        ItemClickSupport.addTo(recycler).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
-            @Override
-            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                Log.d(TAG, "/-/-/-/-/-/-/-/-/-/-/-/-/-/---/-/-/-/-/-/ " + cartModelList.get(position).getNameOfMeal());
-                openProductPage(cartModelList, position);
-            }
-
-            @Override
-            public void onItemDoubleClicked(RecyclerView recyclerView, int position, View v) {
-                /*mealId = mealModelList.get(position).getMealId();
-                reactToDoubleClick(mealId);*/
-            }
-        });
-    }
-
-    private void openProductPage(List<CartModel> cartModelList, int position){
-        Log.d(TAG, "/-/-/-/-/-/-/-/-/-/-/-/-/-/---/-/-/-/-/-/ " + cartModelList.get(position).getNameOfMeal());
-        ProductPageFragment productPageFragment = new ProductPageFragment();
-        productPageFragment.setMealId(cartModelList.get(position).getMealId());
     }
 
     private void setCorrectTotalPrice(List<CartModel> cartModels) {
@@ -192,101 +135,6 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
         return bd.doubleValue();
     }
 
-    private void getInfoToAddToPastOrdersList() {
-        String image = cartItems.get(0).getImage();
-        int numberOfItems = 0;
-        for(CartModel cartModel: cartItems){
-            numberOfItems = numberOfItems + cartModel.getNumOrders();
-        }
-        Double totalPrice = 0.0;
-        for(CartModel cartModel: cartItems){
-            totalPrice = totalPrice + cartModel.getTotalPrice();
-        }
-        orderNumber = thisUserModel.getTotalNumberOfOrders() + 1;
-        addToPastOrdersCollection(image, false, numberOfItems, orderNumber, totalPrice);
-    }
-
-    public void addToPastOrdersCollection(String image, boolean liked, int numberOfItems,
-                                           int orderNumber, Double totalPrice){
-        HashMap<String, Object> pastOrderMap = new HashMap<>();
-        pastOrderMap.put("image", image);
-        pastOrderMap.put("liked", liked);
-        pastOrderMap.put("numberOfItems", numberOfItems);
-        pastOrderMap.put("orderNumber", orderNumber);
-        pastOrderMap.put("totalPrice", totalPrice);
-        pastOrderMap.put("timestamp", new Date());
-
-        firebaseFirestore
-                .collection("Users")
-                .document(account.getId())
-                .collection("Past Orders")
-                .add(pastOrderMap)
-                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull @NotNull Task<DocumentReference> task) {
-                        if(task.isSuccessful()) {
-                            DocumentReference documentReference = task.getResult();
-                            pastOrderId = documentReference.getId();
-                            addOrderSpecificDetails();
-                            clearCart();
-                            updateTotalNumberOfOrders();
-                        }
-                    }
-                });
-    }
-
-    private void addOrderSpecificDetails() {
-        for(CartModel cartModel: cartItems){
-            HashMap<String, Object> orderSpecificDetailsMap = new HashMap<>();
-            boolean liked = cartModel.isLiked();
-            String mealId = cartModel.getMealId();
-            String image = cartModel.getImage();
-            String nameOfMeal = cartModel.getNameOfMeal();
-            int numOrders = cartModel.getNumOrders();
-            Double totalPrice = cartModel.getTotalPrice();
-
-            orderSpecificDetailsMap.put("liked", liked);
-            orderSpecificDetailsMap.put("mealId", mealId);
-            orderSpecificDetailsMap.put("image", image);
-            orderSpecificDetailsMap.put("nameOfMeal", nameOfMeal);
-            orderSpecificDetailsMap.put("numOrders", numOrders);
-            orderSpecificDetailsMap.put("totalPrice", totalPrice);
-
-            firebaseFirestore
-                    .collection("Users")
-                    .document(account.getId())
-                    .collection("Past Orders")
-                    .document(pastOrderId)
-                    .collection("Order Specific Details")
-                    .add(orderSpecificDetailsMap)
-                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(@NonNull @NotNull Task<DocumentReference> task) {
-                            if(task.isSuccessful()){
-                                
-                            }
-                        }
-                    });
-        }
-
-    }
-
-    private void clearCart() {
-        for(int i=0; i<cartItems.size(); i++){
-            onRemoveItemClicked(i);
-        }
-    }
-
-    private void updateTotalNumberOfOrders() {
-        HashMap<String, Object> totalNumberOfOrdersMap = new HashMap<>();
-        int totalNumberOfOrders = orderNumber;
-        totalNumberOfOrdersMap.put("totalNumberOfOrders", totalNumberOfOrders);
-        firebaseFirestore
-                .collection("Users")
-                .document(account.getId())
-                .update(totalNumberOfOrdersMap);
-    }
-
     private void openCart(){
         CheckoutBottomSheetFragment checkoutBottomSheetFragment = new CheckoutBottomSheetFragment(cartItems);
         checkoutBottomSheetFragment.show(getParentFragmentManager(), checkoutBottomSheetFragment.getTag());
@@ -296,6 +144,7 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment implement
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.goToCheckoutTv:
+                if(cartItems.size()>0)
                 openCart();
                 break;
         }

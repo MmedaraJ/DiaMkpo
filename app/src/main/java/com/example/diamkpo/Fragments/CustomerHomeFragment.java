@@ -230,7 +230,7 @@ public class CustomerHomeFragment extends Fragment implements View.OnClickListen
         Glide.with(getActivity())
                 .load(lastOrder.getImage())
                 .centerCrop()
-                .placeholder(R.drawable.burger1)
+                .placeholder(R.drawable.placeholder_image)
                 .into(yourLastMealImage);
 
         lastMealOrderNumber.setText("#" + lastOrder.getOrderNumber());

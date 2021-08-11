@@ -71,7 +71,7 @@ public class PastOrderDetailsCartItemsAdapter extends RecyclerView.Adapter<PastO
             Glide.with(itemView.getContext())
                     .load(orderSpecificDetail.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(mealImagePastOrderDetails);
         }
     }

@@ -92,7 +92,7 @@ public class HighestRatedMealsAdapter extends RecyclerView.Adapter<HighestRatedM
                     .load(meal.getImage())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(highestRatedProductImage);
 
             firebaseFirestore

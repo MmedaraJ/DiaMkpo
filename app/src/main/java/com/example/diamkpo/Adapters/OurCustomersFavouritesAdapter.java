@@ -89,7 +89,7 @@ public class OurCustomersFavouritesAdapter extends RecyclerView.Adapter<OurCusto
             Glide.with(itemView.getContext())
                     .load(meal.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(favouritesImage);
             //like
             firebaseFirestore

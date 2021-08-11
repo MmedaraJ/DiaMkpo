@@ -67,7 +67,7 @@ public class LikedMealsAdapter extends RecyclerView.Adapter<LikedMealsAdapter.Li
             Glide.with(itemView.getContext())
                     .load(image)
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(imageOfLikedMeal);
         }
     }

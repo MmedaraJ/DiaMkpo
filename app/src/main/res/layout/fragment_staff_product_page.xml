@@ -22,7 +22,7 @@
             android:id="@+id/backIconStaffProductPageFragment"
             android:layout_width="@dimen/menu_width"
             android:layout_height="@dimen/menu_height"
-            android:src="@drawable/left_arrow" />
+            android:src="@drawable/ic_baseline_arrow_back_24" />
 
         <EditText
             android:id="@+id/staffProductPageHeader"
@@ -65,7 +65,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/burger1" />
+                app:srcCompat="@drawable/placeholder_image" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/doneEditingProduct"

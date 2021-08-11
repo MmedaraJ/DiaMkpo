@@ -76,7 +76,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/meat" />
+            app:srcCompat="@drawable/placeholder_image" />
 
         <ImageView
             android:id="@+id/menuItemLikeCircle"
