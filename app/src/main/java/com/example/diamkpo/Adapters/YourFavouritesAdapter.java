@@ -90,7 +90,7 @@ public class YourFavouritesAdapter extends RecyclerView.Adapter<YourFavouritesAd
             Glide.with(itemView.getContext())
                     .load(meal.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(favouritesImage);
 
             firebaseFirestore

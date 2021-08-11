@@ -109,7 +109,7 @@ public class PastOrderItemsAdapter extends RecyclerView.Adapter<PastOrderItemsAd
             Glide.with(itemView.getContext())
                     .load(pastOrder.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(pastOrderImage);
 
             firebaseFirestore

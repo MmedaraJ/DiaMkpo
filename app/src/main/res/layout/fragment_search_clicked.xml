@@ -30,7 +30,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/searchViewSearchClickedFragment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/searchViewSearchClickedFragment"
-        app:srcCompat="@drawable/cancel" />
+        app:srcCompat="@drawable/ic_baseline_close_24" />
 
     <TextView
         android:id="@+id/resultsTvSearchClicked"

@@ -20,7 +20,7 @@
             android:id="@+id/pastOrderImage"
             android:layout_width="@dimen/past_order_image_w"
             android:layout_height="@dimen/past_order_height"
-            android:src="@drawable/burger2"
+            android:src="@drawable/placeholder_image"
             app:layout_constraintBottom_toBottomOf="@+id/lastMealBackground"
             app:layout_constraintStart_toStartOf="@+id/lastMealBackground"
             app:layout_constraintTop_toTopOf="@+id/lastMealBackground" />

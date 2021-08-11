@@ -64,7 +64,7 @@
         android:layout_width="@dimen/menu_width"
         android:layout_height="@dimen/menu_height"
         android:layout_marginStart="16dp"
-        android:src="@drawable/search1"
+        android:src="@drawable/ic_baseline_search_24"
         app:layout_constraintBottom_toBottomOf="@+id/searchTextViewSearchFragment"
         app:layout_constraintStart_toStartOf="@+id/searchTextViewSearchFragment"
         app:layout_constraintTop_toTopOf="@+id/searchTextViewSearchFragment" />

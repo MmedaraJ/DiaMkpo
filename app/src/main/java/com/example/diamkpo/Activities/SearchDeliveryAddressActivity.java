@@ -105,14 +105,12 @@ public class SearchDeliveryAddressActivity extends AppCompatActivity implements 
         autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(@NonNull Place place) {
-                // TODO: Get info about the selected place.
                 addressName = place.getName();
                 deliveryProvince = place.getAddress();
             }
 
             @Override
             public void onError(@NonNull Status status) {
-                // TODO: Handle the error.
                 Log.i(TAG, "An error occurred: " + status);
             }
         });

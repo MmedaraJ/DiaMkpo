@@ -87,7 +87,7 @@ public class MenuCategoryItemAdapter extends RecyclerView.Adapter<MenuCategoryIt
             Glide.with(itemView.getContext())
                     .load(meal.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(menuItemImageView);
 
             if (account != null) {

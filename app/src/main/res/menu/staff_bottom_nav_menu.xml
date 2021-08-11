@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/staffBrowseMenu"
-        android:icon="@drawable/search"
+        android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/browse" />
     <item
         android:id="@+id/staffMenuMenu"
         android:title="@string/menu"
-        android:icon="@drawable/menu"/>
+        android:icon="@drawable/ic_baseline_restaurant_menu_24"/>
 </menu>

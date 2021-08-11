@@ -87,7 +87,7 @@ public class SearchResultItemAdapter extends RecyclerView.Adapter<SearchResultIt
             Glide.with(itemView.getContext())
                     .load(meal.getImage())
                     .centerCrop()
-                    .placeholder(R.drawable.burger1)
+                    .placeholder(R.drawable.placeholder_image)
                     .into(searchResultImage);
 
             if (account != null) {

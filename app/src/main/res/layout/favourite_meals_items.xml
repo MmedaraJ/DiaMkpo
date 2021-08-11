@@ -27,7 +27,7 @@
                 android:id="@+id/favouritesImage"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/favourites_h_w"
-                app:srcCompat="@drawable/drinks" />
+                app:srcCompat="@drawable/placeholder_image" />
 
             <ImageView
                 android:id="@+id/favouritesLikeCircle"

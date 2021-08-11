@@ -35,6 +35,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -42,6 +43,8 @@ import org.jetbrains.annotations.NotNull;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment implements View.OnClickListener, CartItemsAdapter.CartItemClicked/*CheckoutItemsAdapter.CheckoutItemClicked*/ {
@@ -73,6 +76,7 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
     private RecyclerView checkoutItemsRecycler;
 
     private UserViewModel userViewModel;
+    private UserModel thisUserModel;
 
     private CartItemsAdapter cartItemsAdapter;
 
@@ -85,6 +89,11 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
     private String deliveryProvince;
 
     private List<CartModel> cartItems;
+
+    private String pastOrderId;
+    private String image;
+
+    private int orderNumber;
 
     private static final String TAG = "CHECKOUT";
 
@@ -116,8 +125,11 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
         taxes = 0.00;
         totalPrice = 0.00;
 
+        orderNumber = 0;
+
         deliveryAddress = "";
         deliveryProvince = "";
+        pastOrderId = "";
 
         cartItems = new ArrayList<>();
 
@@ -164,6 +176,7 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
         userViewModel.getUserModelData(getActivity()).observe(getViewLifecycleOwner(), new Observer<UserModel>() {
             @Override
             public void onChanged(UserModel userModel) {
+                thisUserModel = userModel;
                 if(userModel.getDeliveryAddress() != null) deliveryAddress = userModel.getDeliveryAddress();
                 else deliveryAddress = "Add a delivery address";
                 if(userModel.getDeliveryProvince() != null) deliveryProvince = userModel.getDeliveryProvince();
@@ -198,10 +211,107 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
         return bd.doubleValue();
     }
 
+
+    private void getInfoToAddToPastOrdersList() {
+        String image = cartItems.get(0).getImage();
+        int numberOfItems = 0;
+        for(CartModel cartModel: cartItems){
+            numberOfItems = numberOfItems + cartModel.getNumOrders();
+        }
+        Double totalPrice = 0.0;
+        for(CartModel cartModel: cartItems){
+            totalPrice = totalPrice + cartModel.getTotalPrice();
+        }
+        orderNumber = thisUserModel.getTotalNumberOfOrders() + 1;
+        addToPastOrdersCollection(image, false, numberOfItems, orderNumber, totalPrice);
+    }
+
+    public void addToPastOrdersCollection(String image, boolean liked, int numberOfItems,
+                                           int orderNumber, Double totalPrice){
+        HashMap<String, Object> pastOrderMap = new HashMap<>();
+        pastOrderMap.put("image", image);
+        pastOrderMap.put("liked", liked);
+        pastOrderMap.put("numberOfItems", numberOfItems);
+        pastOrderMap.put("orderNumber", orderNumber);
+        pastOrderMap.put("totalPrice", totalPrice);
+        pastOrderMap.put("timestamp", new Date());
+
+        firebaseFirestore
+                .collection("Users")
+                .document(account.getId())
+                .collection("Past Orders")
+                .add(pastOrderMap)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<DocumentReference> task) {
+                        if(task.isSuccessful()) {
+                            DocumentReference documentReference = task.getResult();
+                            pastOrderId = documentReference.getId();
+                            addOrderSpecificDetails();
+                            clearCart();
+                            updateTotalNumberOfOrders();
+                        }
+                    }
+                });
+    }
+
+    private void addOrderSpecificDetails() {
+        for(CartModel cartModel: cartItems){
+            HashMap<String, Object> orderSpecificDetailsMap = new HashMap<>();
+            boolean liked = cartModel.isLiked();
+            String mealId = cartModel.getMealId();
+            String image = cartModel.getImage();
+            String nameOfMeal = cartModel.getNameOfMeal();
+            int numOrders = cartModel.getNumOrders();
+            Double totalPrice = cartModel.getTotalPrice();
+
+            orderSpecificDetailsMap.put("liked", liked);
+            orderSpecificDetailsMap.put("mealId", mealId);
+            orderSpecificDetailsMap.put("image", image);
+            orderSpecificDetailsMap.put("nameOfMeal", nameOfMeal);
+            orderSpecificDetailsMap.put("numOrders", numOrders);
+            orderSpecificDetailsMap.put("totalPrice", totalPrice);
+
+            firebaseFirestore
+                    .collection("Users")
+                    .document(account.getId())
+                    .collection("Past Orders")
+                    .document(pastOrderId)
+                    .collection("Order Specific Details")
+                    .add(orderSpecificDetailsMap)
+                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull @NotNull Task<DocumentReference> task) {
+                            if(task.isSuccessful()){
+
+                            }
+                        }
+                    });
+        }
+
+    }
+
+    private void clearCart() {
+        for(int i=0; i<cartItems.size(); i++){
+            onRemoveItemClicked(i);
+        }
+    }
+
+    private void updateTotalNumberOfOrders() {
+        HashMap<String, Object> totalNumberOfOrdersMap = new HashMap<>();
+        int totalNumberOfOrders = orderNumber;
+        totalNumberOfOrdersMap.put("totalNumberOfOrders", totalNumberOfOrders);
+        firebaseFirestore
+                .collection("Users")
+                .document(account.getId())
+                .update(totalNumberOfOrdersMap);
+    }
+
     private void setOnCLickListeners() {
         addItemsCheckout.setOnClickListener(this);
         cancelCheckout.setOnClickListener(this);
         changeDeliveryAddressLayout.setOnClickListener(this);
+        payNowLinearLayout.setOnClickListener(this);
     }
 
     @Override
@@ -213,6 +323,10 @@ public class CheckoutBottomSheetFragment extends BottomSheetDialogFragment imple
             case R.id.changeDeliveryAddressLayout:
                 Intent i = new Intent(getActivity(), SearchDeliveryAddressActivity.class);
                 startActivity(i);
+                break;
+            case R.id.payNowLinearLayout:
+                if(totalPrice>0.0)
+                getInfoToAddToPastOrdersList();
                 break;
         }
     }

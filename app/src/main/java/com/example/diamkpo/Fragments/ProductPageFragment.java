@@ -155,7 +155,7 @@ public class ProductPageFragment extends Fragment implements View.OnClickListene
                             Glide.with(getActivity())
                                     .load(mealImage)
                                     .centerCrop()
-                                    .placeholder(R.drawable.burger1)
+                                    .placeholder(R.drawable.placeholder_image)
                                     .into(productImageProductPage);
                             productDescriptionProductPage.setText(documentSnapshot.getString("description"));
                             String genOrders = documentSnapshot.getDouble("numOrders") + " people have ordered this meal";
