@@ -1,8 +1,5 @@
 # DiaMkpo
-This ia an android project. 
-It models an app for a single restaurant called Dia Mkpo. 
-I designed the UI myself. 
-There are two logins - customer (Google sign in) and staff (Email and password sign in). 
-A customer can perform the regular customer activities (search, checkout, menu, view past orders, etc). 
-A staff can search for a meal and edit it, add a new meal or delete a meal.
-I am using google firestore database and MVVM design pattern.
+Created a restaurant app for android. User can search and buy meals. They can like a meal or a
+past order by double clicking. Nav graph and bottom navigation are used. Staff can edit, delete,
+or create meals. Google sign in for users and email/password authentication for staff. Fire store +
+MVVM pattern and live data. (Java, XML) [https://youtu.be/eKHTWN46AVE]
