@@ -1,6 +1,8 @@
 # DiaMkpo
 Created a restaurant app for android. 
 
+This app is made for a sample restaurant called "Dia Mkpo". The app starts with a splash screen that displays the restaurant name and logo. A new user would be required to sign up. 
+
 FEATURES FOR USERS
 1. Search for meals. 
 2. Like a meal by double clicking a meal
@@ -15,6 +17,18 @@ FEATURES FOR USERS
 11. Reorder previous orders
 12. Buy a meal
 13. Rate a meal
+
+<img width="1440" alt="Screen Shot 2021-07-28 at 12 37 44 AM" src="https://user-images.githubusercontent.com/72234561/130307578-06265cbd-6c84-4836-88ad-63956e552d59.png">
+
+
+FEATURES FOR STAFF
+1. Search for meals
+2. Access restaurant menu
+3. Edit details of a meal
+4. Add a new meal
+5. Delete a meal
+6. Email and password sign in
+7. Sign out
 
 past order by double clicking. Nav graph and bottom navigation are used. Staff can edit, delete,
 or create meals. Google sign in for users and email/password authentication for staff. Fire store +
