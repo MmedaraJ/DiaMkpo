@@ -18,9 +18,6 @@ FEATURES FOR USERS
 12. Buy a meal
 13. Rate a meal
 
-<img width="1440" alt="Screen Shot 2021-07-28 at 12 37 44 AM" src="https://user-images.githubusercontent.com/72234561/130307578-06265cbd-6c84-4836-88ad-63956e552d59.png">
-
-
 FEATURES FOR STAFF
 1. Search for meals
 2. Access restaurant menu
