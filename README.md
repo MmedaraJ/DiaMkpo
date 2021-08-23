@@ -1,6 +1,8 @@
 # DiaMkpo
 Created a restaurant app for android. 
 
+Youtube - https://www.youtube.com/watch?v=eKHTWN46AVE
+
 This app is made for a sample restaurant called "Dia Mkpo".
 Database - Google firestore
 Architecture - MVVM
