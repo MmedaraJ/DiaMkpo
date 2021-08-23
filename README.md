@@ -1,7 +1,35 @@
 # DiaMkpo
 Created a restaurant app for android. 
 
-This app is made for a sample restaurant called "Dia Mkpo". 
+This app is made for a sample restaurant called "Dia Mkpo".
+Database - Google firestore
+Architecture - MVVM
+Language - Java
+Navigation - Bottom nav
+
+FEATURES FOR USERS
+1. Search for meals. 
+2. Like a meal by double clicking a meal
+3. Access restaurant menu
+4. Access past orders
+5. Like a past order by double clicking a past orderp
+6. Use bottom navigation to navigate the app
+7. Sign in using google sign in
+8. Sign out
+9. Access list of liked meals.
+10. Change delivery address
+11. Reorder previous orders
+12. Buy a meal
+13. Rate a meal
+
+FEATURES FOR STAFF
+1. Search for meals
+2. Access restaurant menu
+3. Edit details of a meal
+4. Add a new meal
+5. Delete a meal
+6. Email and password sign in
+7. Sign out
 
 SCREENS
 1. Spalsh screen - Displays the restaurant logo
@@ -44,28 +72,31 @@ SCREENS
 
 11. Delivery Address - User can search for a delivery address. Clicking the update delivery location button changes the stored delivery address
 
+12. Sign out Dialog - Clicking yes allows a user to sign out.
 
+13. Rate Meal Dialog - User can submit a star and text rating for each meal in a past order.
 
-FEATURES FOR USERS
-1. Search for meals. 
-2. Like a meal by double clicking a meal
-3. Access restaurant menu
-4. Access past orders
-5. Like a past order by double clicking a past orderp
-6. Use bottom navigation to navigate the app
-7. Sign in using google sign in
-8. Sign out
-9. Access list of liked meals.
-10. Change delivery address
-11. Reorder previous orders
-12. Buy a meal
-13. Rate a meal
+14. Cart - Meals can be added to or removed from the cart. Clicking the go to checkout button opens the checkout screen.
 
-FEATURES FOR STAFF
-1. Search for meals
-2. Access restaurant menu
-3. Edit details of a meal
-4. Add a new meal
-5. Delete a meal
-6. Email and password sign in
-7. Sign out
+15. Checkout - Users can Change delivery address
+             - All meals to be checked out are listed with their prices
+             - Subtotal, delivery fee, axes and total prices are displayed
+             - There is a pay now button. When clicked, the meals are added to the list of past orders.
+
+--STAFF SCREENS--
+3. Search - Staff can search for a meal or click a category to access the menu
+          - Staff can sign out by clicking the sign out button
+          - Clicking the +Add new meal button opens an empty product page.
+
+4. Menu - Same as for user
+        - Clicking a meal opens an editable product page
+
+5. Add New Meal Product Page - This product page is blank. Staff can add details of a new meal. Clicking the done button adds the meal to the database. Clicking the delete button closes the product page and discards the process.
+
+6. Edit Meal Product Page - The details of a meal can be editted. Clicking the done button saves the meal with it's new details. Clicking the delete button deletes 
+the meal and discards the process.
+
+ISSUES
+1. Payment not allowed
+2. Text colour on tab layout
+             
